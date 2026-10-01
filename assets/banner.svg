@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#090d11"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="50%" stop-color="#bc8cff"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#388bfd" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#bc8cff" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <style>
+      .title { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; font-size: 42px; fill: url(#titleGrad); }
+      .subtitle { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 20px; fill: #8b949e; }
+      .tag { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 13px; fill: #58a6ff; }
+      .grid-line { stroke: #30363d; stroke-width: 0.5; stroke-dasharray: 4 4; opacity: 0.4; }
+      
+      @keyframes pulseLine {
+        0% { stroke-dashoffset: 600; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes floatPulse {
+        0%, 100% { transform: translateY(0px); opacity: 0.7; }
+        50% { transform: translateY(-6px); opacity: 1; }
+      }
+      @keyframes barGrow {
+        0%, 100% { transform: scaleY(1); }
+        50% { transform: scaleY(1.35); }
+      }
+      .anim-wave { stroke: #388bfd; stroke-width: 3; fill: none; stroke-dasharray: 600; animation: pulseLine 6s linear infinite; }
+      .anim-wave2 { stroke: #3fb950; stroke-width: 2; fill: none; opacity: 0.6; stroke-dasharray: 600; animation: pulseLine 8s linear infinite reverse; }
+      .live-dot { fill: #3fb950; animation: floatPulse 2s ease-in-out infinite; }
+      .bar1 { transform-origin: bottom; animation: barGrow 3s ease-in-out infinite 0s; }
+      .bar2 { transform-origin: bottom; animation: barGrow 3s ease-in-out infinite 0.5s; }
+      .bar3 { transform-origin: bottom; animation: barGrow 3s ease-in-out infinite 1s; }
+      .bar4 { transform-origin: bottom; animation: barGrow 3s ease-in-out infinite 1.5s; }
+    </style>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="320" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1200" height="320" rx="16" fill="url(#glowGrad)"/>
+  
+  <!-- Border -->
+  <rect x="1" y="1" width="1198" height="318" rx="15" fill="none" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Background Grid -->
+  <line x1="100" y1="0" x2="100" y2="320" class="grid-line"/>
+  <line x1="300" y1="0" x2="300" y2="320" class="grid-line"/>
+  <line x1="500" y1="0" x2="500" y2="320" class="grid-line"/>
+  <line x1="700" y1="0" x2="700" y2="320" class="grid-line"/>
+  <line x1="900" y1="0" x2="900" y2="320" class="grid-line"/>
+  <line x1="1100" y1="0" x2="1100" y2="320" class="grid-line"/>
+
+  <!-- Background Metrics Graph (Right Side Dynamic Element) -->
+  <g transform="translate(750, 140)">
+    <!-- Subdued Graph Background Cards -->
+    <rect x="0" y="0" width="380" height="130" rx="10" fill="#161b22" opacity="0.6" stroke="#30363d"/>
+    
+    <!-- Mini Bar Chart -->
+    <g transform="translate(30, 100)">
+      <rect x="0" y="-40" width="12" height="40" rx="2" fill="#58a6ff" opacity="0.8" class="bar1"/>
+      <rect x="20" y="-65" width="12" height="65" rx="2" fill="#3fb950" opacity="0.8" class="bar2"/>
+      <rect x="40" y="-30" width="12" height="30" rx="2" fill="#bc8cff" opacity="0.8" class="bar3"/>
+      <rect x="60" y="-80" width="12" height="80" rx="2" fill="#f0883e" opacity="0.8" class="bar4"/>
+    </g>
+
+    <!-- Animated Waveform lines -->
+    <path d="M 120 70 Q 160 20 200 60 T 280 40 T 360 80" class="anim-wave"/>
+    <path d="M 120 90 Q 170 40 210 80 T 290 60 T 360 50" class="anim-wave2"/>
+
+    <!-- Pulse status -->
+    <circle cx="350" cy="25" r="5" class="live-dot"/>
+    <text x="280" y="29" font-family="system-ui" font-size="11" fill="#7ee787" font-weight="600">LIVE METRICS</text>
+  </g>
+
+  <!-- Foreground Content (Pill Badges, Main Title & Subtitle) -->
+  <g transform="translate(60, 60)">
+    <!-- Top Pill Badge -->
+    <g transform="translate(0, 0)">
+      <rect width="250" height="28" rx="14" fill="#1f6feb" fill-opacity="0.2" stroke="#1f6feb" stroke-opacity="0.4"/>
+      <circle cx="16" cy="14" r="4" fill="#58a6ff"/>
+      <text x="28" y="18" class="tag">CURATED OBSERVABILITY ECOSYSTEM</text>
+    </g>
+
+    <!-- Title & Subtitle -->
+    <text x="0" y="75" class="title" filter="url(#glow)">Awesome Database Performance Monitoring</text>
+    <text x="0" y="115" class="subtitle">Query Optimization • Real-Time Metrics • Slow Query Analytics • APM &amp; eBPF</text>
+    
+    <!-- Feature Chips -->
+    <g transform="translate(0, 145)">
+      <rect x="0" y="0" width="120" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="12" y="17" font-family="system-ui" font-size="12" fill="#c9d1d9">🐘 PostgreSQL</text>
+
+      <rect x="130" y="0" width="100" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="142" y="17" font-family="system-ui" font-size="12" fill="#c9d1d9">🐬 MySQL</text>
+
+      <rect x="240" y="0" width="110" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="252" y="17" font-family="system-ui" font-size="12" fill="#c9d1d9">🍃 MongoDB</text>
+
+      <rect x="360" y="0" width="130" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="372" y="17" font-family="system-ui" font-size="12" fill="#c9d1d9">⚡ eBPF &amp; Metrics</text>
+    </g>
+  </g>
+</svg>
