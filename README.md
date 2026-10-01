@@ -225,3 +225,12 @@ Star the repo if you find it useful!
 **Made for DBAs, platform engineers, SREs, and database performance specialists.**
 
 Let's make database performance monitoring more open, transparent, and observable.
+
+## ⭐ Star History
+
+<a href="https://star-history.com/#ishandutta2007/Awesome-Database-Performance-Monitoring&Timeline" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/ishandutta2007_Awesome-Database-Performance-Monitoring_growth.svg">
+    <img alt="Star History Chart" src="assets/ishandutta2007_Awesome-Database-Performance-Monitoring_growth.svg">
+  </picture>
+</a>
